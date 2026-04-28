@@ -18,6 +18,6 @@ public class SistemaDePedidos {
 
     public void crearPedido(int mesaId, int pedidoId, List<String> items) {
         PedidoRealizadoEvent event = new PedidoRealizadoEvent(mesaId, pedidoId, items);
-        bus.publish(event);
+        bus.publicar(event);
     }
 }

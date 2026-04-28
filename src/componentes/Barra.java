@@ -30,6 +30,6 @@ public class Barra implements EventHandler<PedidoRealizadoEvent> {
     private void prepararBebida(int mesaId, String bebida) {
         System.out.println("[Barra] Preparando " + bebida);
 
-        bus.publish(new BebidaServidaEvent(mesaId, bebida));
+        bus.publicar(new BebidaServidaEvent(mesaId, bebida));
     }
 }

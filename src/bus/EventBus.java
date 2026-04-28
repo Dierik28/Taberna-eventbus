@@ -12,13 +12,13 @@ public class EventBus {
 
     private final Map<Class<? extends Event>, List<EventHandler<? extends Event>>> subscribers = new ConcurrentHashMap<>();
 
-    public <T extends Event> void subscribe(Class<T> eventType, EventHandler<T> handler) {
+    public <T extends Event> void suscribir(Class<T> eventType, EventHandler<T> handler) {
         subscribers
                 .computeIfAbsent(eventType, k -> new CopyOnWriteArrayList<>())
                 .add(handler);
     }
 
-    public <T extends Event> void unsubscribe(Class<T> eventType, EventHandler<T> handler) {
+    public <T extends Event> void desuscribir(Class<T> eventType, EventHandler<T> handler) {
         List<EventHandler<? extends Event>> handlers = subscribers.get(eventType);
         if (handlers != null) {
             handlers.remove(handler);
@@ -26,7 +26,7 @@ public class EventBus {
     }
 
     @SuppressWarnings("unchecked")
-    public <T extends Event> void publish(T event) {
+    public <T extends Event> void publicar(T event) {
         List<EventHandler<? extends Event>> handlers = subscribers.get(event.getClass());
 
         if (handlers == null) return;

@@ -16,8 +16,8 @@ public class Main {
         PanelLED panel = new PanelLED();
 
         // Suscripciones
-        bus.subscribe(PedidoRealizadoEvent.class, barra);
-        bus.subscribe(BebidaServidaEvent.class, panel);
+        bus.suscribir(PedidoRealizadoEvent.class, barra);
+        bus.suscribir(BebidaServidaEvent.class, panel);
 
         // Flujo
         pedidos.crearPedido(1, 100, Arrays.asList("cerveza", "tacos"));
