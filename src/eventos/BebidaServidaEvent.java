@@ -2,6 +2,9 @@ package eventos;
 
 import bus.Event;
 
+/**
+ * Evento que indica que una bebida fue servida.
+ */
 public final class BebidaServidaEvent implements Event {
 
     private final int mesaId;
@@ -12,11 +15,6 @@ public final class BebidaServidaEvent implements Event {
         this.bebida = bebida;
     }
 
-    public int getMesaId() {
-        return mesaId;
-    }
-
-    public String getBebida() {
-        return bebida;
-    }
+    public int getMesaId() { return mesaId; }
+    public String getBebida() { return bebida; }
 }

@@ -1,8 +1,7 @@
 package bus;
 
 /**
- * Marca todos los eventos del sistema.
- * Permite tipado fuerte en el EventBus.
+ * Interfaz base para todos los eventos del sistema.
  */
 public interface Event {
 }

@@ -1,7 +1,7 @@
 package bus;
 
 /**
- * Define el contrato para cualquier componente que quiera reaccionar a eventos.
+ * Interfaz para cualquier clase que quiera escuchar eventos.
  */
 @FunctionalInterface
 public interface EventHandler<T extends Event> {
