@@ -6,7 +6,7 @@ import eventos.PedidoRealizadoEvent;
 import java.util.List;
 
 /**
- * Encargado de generar pedidos.
+ * Genera pedidos y los publica en el bus.
  */
 public class SistemaDePedidos {
 
@@ -17,7 +17,13 @@ public class SistemaDePedidos {
     }
 
     public void crearPedido(int mesaId, int pedidoId, List<String> items) {
-        PedidoRealizadoEvent event = new PedidoRealizadoEvent(mesaId, pedidoId, items);
-        bus.publicar(event);
+
+        System.out.println("[Sistema] Nuevo pedido en mesa " + mesaId);
+
+        bus.publicar(new PedidoRealizadoEvent(
+                mesaId,
+                pedidoId,
+                items
+        ));
     }
 }
