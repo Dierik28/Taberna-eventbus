@@ -1,12 +1,27 @@
 package componentes;
 
+import bus.Event;
 import bus.EventHandler;
-import eventos.BebidaServidaEvent;
+import eventos.*;
 
-public class PanelLED implements EventHandler<BebidaServidaEvent> {
+/**
+ * Muestra notificaciones en consola.
+ */
+public class PanelLED implements EventHandler<Event> {
 
     @Override
-    public void handle(BebidaServidaEvent event) {
-        System.out.println("[LED] Bebida lista en mesa " + event.getMesaId());
+    public void handle(Event event) {
+
+        if (event instanceof BebidaServidaEvent e) {
+            System.out.println("[LED] Bebida lista en mesa " + e.getMesaId());
+        }
+
+        else if (event instanceof ComidaPreparadaEvent e) {
+            System.out.println("[LED] Comida lista del pedido " + e.getPedidoId());
+        }
+
+        else if (event instanceof BandaTocandoEvent e) {
+            System.out.println("[LED] Tocando: " + e.getCancion());
+        }
     }
 }
